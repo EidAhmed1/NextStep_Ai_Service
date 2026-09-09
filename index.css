@@ -396,6 +396,7 @@ padding: 21px 31px;
     color: var(--navy);
     font-weight: 600;
     margin-bottom: 18px;
+    font-size: 17px;
 }
 .eyebrow .dot {
     width: 6px;
@@ -1181,7 +1182,7 @@ font-size: 20px;  margin: 0.8rem 0 0.3rem;
 
 /* ===== UNIVERSITIES ===== */
 #universities {
-    background: #f8f9fa;
+    
 }
 .uni-scroll {
     display: flex;
@@ -1190,6 +1191,7 @@ font-size: 20px;  margin: 0.8rem 0 0.3rem;
     margin-top: 60px;
     padding-bottom: 20px;
     scroll-snap-type: x proximity;
+    gap: 94px;
 }
 .uni-card {
     min-width: 270px;
@@ -2159,7 +2161,6 @@ html{
 /* تنسيقات قسم الجامعات */
 #universities {
   font-family: 'Cairo', sans-serif;
-  background-color: #fafbfc; /* لون خلفية هادئ ومريح للعين */
 }
 
 #universities .wrap {
@@ -2199,6 +2200,7 @@ html{
   max-width: 700px;
   margin-bottom: 40px;
   line-height: 1.6;
+  color: #2b2929;
 }
 
 /* حاوية التمرير الأفقي للبطاقات */
@@ -4893,4 +4895,375 @@ padding: 14px 16px;}
    
     transition: height .4s var(--ease);
     height: 59px;
+}
+@keyframes blink-pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+.member {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.member:hover {
+    transform: translateY(-5px);
+    animation: blink-pulse 1s infinite;
+}
+.member {
+    display: block;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.member:hover {
+    transform: translateY(-4px);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* ترتيب العناصر بجانب بعضها وتكييفها حسب الشاشة */
+  gap: 20px;
+}
+.member {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.member:hover {
+    transform: translateY(-4px);
+}
+.popover-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.soon-popover {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* تظهر فوق العنصر */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* تظهر عند المرور أو النقر (يمكن دعم التركيز/النقر باستخدام :focus أو من خلال JavaScript) */
+.popover-wrapper:hover .soon-popover,
+.popover-wrapper:focus-within .soon-popover {
+    visibility: visible;
+    opacity: 1;
+}
+/* =========================================================
+   UNIVERSITIES SECTION — تنسيق قسم الجامعات
+   ========================================================= */
+#universities {
+  background: #f8f9fa;
+  font-family: 'Cairo', sans-serif;
+}
+
+#universities .wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* حاوية التمرير الأفقي للبطاقات */
+.uni-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  margin-top: 50px;
+  padding-bottom: 24px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.uni-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.uni-scroll::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10px;
+}
+
+/* بطاقة الجامعة الواحدة */
+.uni-card {
+  min-width: 290px;
+  max-width: 290px;
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: transform .4s cubic-bezier(.16, .84, .44, 1), box-shadow .4s cubic-bezier(.16, .84, .44, 1), border-color .3s ease;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.uni-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(47, 104, 255, 0.08);
+  border-color: rgba(47, 104, 255, 0.2);
+}
+
+/* رأس البطاقة (الشعار والاسم) */
+.uni-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.uni-logo {
+  width: 48px;
+  height: 48px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.uni-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.uni-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.35;
+  margin-bottom: 3px;
+}
+
+.uni-loc {
+  font-size: 12.5px;
+  color: var(--gray);
+}
+
+/* تفاصيل البيانات داخل البطاقة */
+.uni-rows {
+  border-top: 1px dashed var(--line);
+  border-bottom: 1px dashed var(--line);
+  padding: 12px 0;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.uni-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+}
+
+.uni-row span:first-child {
+  color: var(--gray);
+}
+
+.uni-row span:last-child {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* الوسم السفلي (Tag) */
+.uni-tag {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(47, 104, 255, 0.08);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 8px;
+}
+
+.mock-note {
+  text-align: center;
+  color: var(--gray);
+  font-size: 13px;
+  margin-top: 24px;
+}
+
+@media(max-width: 560px) {
+  #universities .wrap {
+    padding: 0 20px;
+  }
+  .uni-card {
+    min-width: 82vw;
+    max-width: 82vw;
+  }
+}
+/* =========================================================
+   UNIVERSITIES SECTION — تنسيق قسم الجامعات (شبكي متكامل)
+   ========================================================= */
+#universities {
+  font-family: 'Cairo', sans-serif;
+}
+
+#universities .wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* شبكة عرض البطاقات بدون سكرول */
+.uni-scroll {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 50px;
+  padding-bottom: 24px;
+  overflow-x: visible;
+  gap: 94px;
+}
+
+/* بطاقة الجامعة الواحدة */
+.uni-card {
+  width: 100%;
+  min-width: unset;
+  max-width: unset;
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: transform .4s cubic-bezier(.16, .84, .44, 1), box-shadow .4s cubic-bezier(.16, .84, .44, 1), border-color .3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.uni-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(47, 104, 255, 0.08);
+  border-color: rgba(47, 104, 255, 0.2);
+}
+
+/* رأس البطاقة (الشعار والاسم) */
+.uni-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.uni-logo {
+  width: 48px;
+  height: 48px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.uni-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.uni-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.35;
+  margin-bottom: 3px;
+}
+
+.uni-loc {
+  font-size: 12.5px;
+  color: var(--gray);
+}
+
+/* تفاصيل البيانات داخل البطاقة */
+.uni-rows {
+  border-top: 1px dashed var(--line);
+  border-bottom: 1px dashed var(--line);
+  padding: 12px 0;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.uni-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+}
+
+.uni-row span:first-child {
+  color: var(--gray);
+}
+
+.uni-row span:last-child {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* الوسم السفلي (Tag) */
+.uni-tag {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(47, 104, 255, 0.08);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 8px;
+}
+
+.mock-note {
+  text-align: center;
+  color: var(--gray);
+  font-size: 13px;
+  margin-top: 24px;
+}
+
+@media(max-width: 560px) {
+  #universities .wrap {
+    padding: 0 20px;
+  }
+  .uni-scroll {
+    grid-template-columns: 1fr;
+  }
+}
+#universities .section-title{
+  color: var(--navy);
+  font-size: clamp(28px, 4vw, 44px);
+  max-width: 760px;
 }
